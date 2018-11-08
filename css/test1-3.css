@@ -1,0 +1,41 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.m{
+	margin-bottom: 30px;
+	min-width: 500px;
+}
+.clearfix::after{
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+	content: "这是清除浮动";
+}
+.left{
+	background: #18c;
+	height: 200px;
+}
+.right{
+	width: 500px;
+	height: 200px;
+	background: #90EE90;
+}
+.fRight{
+	float: right;
+}
+.pFather{
+	position: relative;
+}
+.pRight{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.flexbox{
+	display: flex;
+}
+.boxLeft{
+	flex: 1;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div id="header">
+		<div class="header">
+			<div id="log">
+				Logo
+			</div>
+			<div class="nav">
+				<a href="#">Login</a>
+				<a href="#">Register</a>
+				<a href="#">Github</a>
+			</div>
+		</div>
+	</div>
+	<div id="Banner">
+		<div class="Banner clearfix">
+			<div name="one">1</div>
+			<div name="two">2</div>
+			<div name="three">3</div>
+			<div name="fore">4</div>
+		</div>
+	</div>
+	<div id="nav">
+		<div class="nav clearfix">
+			<div class="navTip navChoose">HOME</div>
+			<div class="navTip">PROFILE</div>
+			<div class="navTip">ABOUT</div>
+		</div>
+	</div>
+	<div id="content">
+		<div class="content">
+			<div rows="">
+				<div cols="">This is Content 1</div>
+				<div cols="">MaybeContent2</div>
+				<div cols="">Content3</div>
+			</div>
+			<div rows="">
+				<div cols="">Content4</div>
+				<div cols="">Content5</div>
+				<div cols="">Content6</div>
+				<div cols="">Content7</div>
+			</div>
+			<div rows="">
+				<div cols="">Content8</div>
+				<div cols="">Content9</div>
+				<div cols="">Content10</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="footer">&copy; 2018 ife.baidu.com</div>
+	</div>
+	<script type="text/javascript">
+		window.onload = function() {
+			var navTip = document.getElementsByClassName("navTip");
+			for (var i = 0; i < navTip.length; i++) {
+				navTip[i].onclick = function() {
+					for (var i = 0; i < navTip.length; i++) {
+						navTip[i].className = "navTip";
+					}
+					this.className = "navTip navChoose";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

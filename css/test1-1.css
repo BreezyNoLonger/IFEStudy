@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+}
+.left{
+	width: 30%;
+	height: 200px;
+}
+.right{
+	width: 70%;
+	height: 200px;
+}
+.fLeft{
+	float: left;
+}
+.fRight{
+	float: right;
+}
+.blue{
+	background: #18c;
+}
+.green{
+	background: #90EE90;
+}
+.clearfix::after{
+	display: block;
+	height: 0;
+	clear: both;
+	content: "这是清除浮动";
+	visibility: hidden;
+}
+.pFather{
+	position: relative;
+}
+.pLeft{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.pRight{
+	position: absolute;
+	left: 30%;
+	top: 0;
+}
+.flexbox{
+	display: flex;
+	margin-top: 200px;
+}
+.boxLeft{
+	flex: 3;
+	height: 200px;
+}
+.boxRight{
+	flex: 7;
+	height: 200px;
+}
