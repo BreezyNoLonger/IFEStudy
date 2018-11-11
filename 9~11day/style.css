@@ -13,6 +13,10 @@ body>div{
 	margin: 0 auto;
 	width: 1600px;
 }
+h1{
+	font-size: 4.2rem;
+	line-height: 1.5;
+}
 p{
 	font-size: 1.6rem;
 	color: #999;
@@ -61,7 +65,6 @@ a{
 .header .title h1{
 	padding-top:200px;
 	width: 1600px;
-	font-size: 4rem;
 }
 .header .title p{
 	margin: 75px auto 0;
@@ -132,9 +135,6 @@ a{
 .feature1 .title h1{
 	margin: 40px auto 0;
 	width: 40%;
-	font-size: 4rem;
-	font-weight: 100;
-	line-height: 1.5;
 }
 .feature1 .introduction{
 	margin: 0 auto 100px;
@@ -184,6 +184,8 @@ a{
 .feature2 .content{
 	padding: 100px 0 100px 20%;
 	height: 800px;
+	background: url(images/Screen.png) no-repeat;
+	background-position: 956px center;
 	position: relative;
 	text-align: left;
 }
@@ -193,7 +195,6 @@ a{
 	float: left;
 }
 .feature2 .content .text h1{
-	font-size: 4.2rem;
 	color: #fff;
 }
 .feature2 .content .text p{
@@ -238,7 +239,6 @@ a{
 	border-bottom: 1px #e7e7e7 solid;
 }
 .feature3 .title h1{
-	font-size: 4.2rem;
 	padding-top: 100px;
 }
 .feature3 .logos{
@@ -308,8 +308,6 @@ a{
 }
 .feature5 .content .title h1{
 	margin-bottom: 20px;
-	line-height: 1.5;
-	font-size: 4.2rem;
 }
 .feature5 .content .teachers{
 	margin-top: 65px;
@@ -430,9 +428,6 @@ a{
 }
 .feature6 .content .message .title h1{
 	margin: 80px 0 30px;
-	font-size: 4.2rem;
-	font-weight: 100;
-	line-height: 1.5;
 }
 .feature6 .content .message .about-us-all{
 	margin-top: 65px;
