@@ -1,0 +1,491 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 10px;
+	font-weight: 100;
+	font-family: sans-serif;
+}
+body{
+	background: #f2f2f2;
+}
+body>div{
+	margin: 0 auto;
+	width: 1600px;
+}
+p{
+	font-size: 1.6rem;
+	color: #999;
+	font-weight: 400;
+	line-height: 1.5;
+}
+a{
+	text-decoration: none;
+	font-size: 1.6rem;
+	color: #999;
+	font-weight: 400;
+	line-height: 1.5;
+}
+.placeholder::-webkit-input-placeholder{
+	color:#ccc;
+}
+.placeholder::-moz-placeholder{   /* Mozilla Firefox 19+ */
+	color:#ccc;
+}
+.placeholder:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+	color:#ccc;
+}
+.placeholder:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+	color:#ccc;
+}
+
+/*header*/
+.header{
+	width: 1600px;
+	height: 990px;
+	position: relative;
+	text-align: center;
+	color: #fff;
+}
+.header .bg{
+	width: 1600px;
+	height: 990px;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	background: #000;
+}
+.header .bg img{
+	opacity: 0.5;
+}
+.header .title h1{
+	padding-top:200px;
+	width: 1600px;
+	font-size: 4rem;
+}
+.header .title p{
+	margin: 75px auto 0;
+	width: 50%;
+	font-size: 2rem;
+}
+.header .signupfrom{
+	margin: 100px auto;
+	width: 60%;
+	height: 200px;
+	border: 1px #555 solid;
+	border-radius: 2px;
+}
+.header .signupfrom h3{
+	margin-top: 50px;
+	font-size: 2rem;
+	font-weight: 400;
+}
+.header .signupfrom p{
+	margin-top: 10px;
+}
+.header .signupfrom form{
+	margin: 20px auto 0;
+	width: 80%;
+}
+.header .signupfrom form [name]{
+	margin: 0 15px;
+	height: 40px;
+	float: left;
+	font-weight: 400;
+	border-radius: 2px;
+}
+.header .signupfrom form [name="text"]{
+	padding-left: 10px;
+	width: 35%;
+	border: 1px #555 solid;
+	background: rgba(255,255,255,0);
+	color: #fff;
+	font-size: 1.4rem;
+}
+.header .signupfrom form [type="submit"]{
+	margin: 0 10px;
+	width: 15%;
+	height: 40px;
+	float: left;
+	border: none;
+	background: #fff;
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+
+/*feature1*/
+.feature1{
+	width: 100%;
+	height: 710px;
+	text-align: center;
+	background: #fff;
+}
+.feature1 .title{
+	margin-bottom: 10px;
+	padding-top: 100px;
+	height: 300px;
+}
+.feature1 .title p{
+	font-size: 1.4rem;
+	color: #000;
+}
+.feature1 .title h1{
+	margin: 40px auto 0;
+	width: 40%;
+	font-size: 4rem;
+	font-weight: 100;
+	line-height: 1.5;
+}
+.feature1 .introduction{
+	margin: 0 auto 100px;
+	width: 70%;
+	height: 300px;
+}
+.feature1 .introduction [feature]{
+	padding: 30px 70px 0 0;
+	width: 50%;
+	height: 50%;
+	float: left;
+	display: flex;
+}
+.feature1 .introduction [feature] .img{
+	margin: 5px 15px 0 75px;
+	flex: 1 50px;
+}
+.feature1 .introduction [feature] .text{
+	flex: 1 350px;
+	flex-direction: column;
+	display: flex;
+	text-align: left;
+}
+.feature1 .introduction [feature] .text h3{
+	margin-bottom: 20px;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+/*feature2*/
+.feature2{
+	width: 100%;
+	height: 800px;
+	position: relative;
+}
+.feature2 .bg{
+	width: 1600px;
+	height: 800px;
+	position: absolute;
+	top: 0;
+	z-index: -2;
+	background: #000;
+}
+.feature2 .bg img{
+	opacity: 0.5;
+}
+.feature2 .content{
+	padding: 100px 0 100px 20%;
+	height: 800px;
+	position: relative;
+	text-align: left;
+}
+.feature2 .content .text{
+	margin: 80px 0 0;
+	width: 370px;
+	float: left;
+}
+.feature2 .content .text h1{
+	font-size: 4.2rem;
+	color: #fff;
+}
+.feature2 .content .text p{
+	margin-top: 40px;
+	font-size: 1.8rem;
+}
+.feature2 .content .button{
+	width: 520px;
+	height: 60px;
+	position: absolute;
+	bottom: 180px;
+	left: 20%;
+}
+.feature2 .content .button input{
+	width: 250px;
+	height: 60px;
+	border: 1px #fff solid;
+	border-radius: 2px;
+	background: #fff;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+.feature2 .content .button [name="free"]{
+	margin-left: 0;
+	background: rgba(255,255,255,0);
+	border: 1px #666 solid;
+	color: #bbb;
+}
+.feature2 .content img{
+	position: absolute;
+	top: 100px;
+	right: -200px;
+	clip: rect(0 644px 600px 0);
+}
+
+/*feature3*/
+.feature3{
+	width: 100%;
+	height: 580px;
+	background: #fff;
+	text-align: center;
+	border-bottom: 1px #e7e7e7 solid;
+}
+.feature3 .title h1{
+	font-size: 4.2rem;
+	padding-top: 100px;
+}
+.feature3 .logos{
+	margin: 90px auto;
+	width: 60%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.feature3 .logos .logo{
+	width: 270px;
+}
+.feature3 .logos .logo p{
+	margin-top: 30px;
+}
+
+/*feature4*/
+.feature4{
+	width: 100%;
+	height: 1000px;
+	background: #fff;
+	border-bottom: 1px #e7e7e7 solid;
+}
+.feature4 .content{
+	margin: 0 auto;
+	padding: 110px 0;
+	width: 60%;
+	height: 1000px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.feature4 .content img{
+	width: 570px;
+	height: 350px;
+}
+.feature4 .content h3{
+	margin: 80px 0 30px;
+	font-size: 2rem;
+	font-weight: 400;
+	line-height: 1.5
+}
+.feature4 .content>div{
+	display: flex;
+	justify-content: space-between;
+}
+.feature4 .content div div{
+	width: 330px;
+}
+
+/*feature5*/
+.feature5{
+	width: 100%;
+	height: 1085px;
+	background: #fff;
+	border-bottom: 1px #e7e7e7 solid;
+}
+.feature5 .content{
+	margin: 0 auto;
+	width: 60%;
+}
+.feature5 .content .title{
+	margin: 0 auto;
+	padding-top: 95px;
+	width: 75%;
+	text-align: center;
+}
+.feature5 .content .title h1{
+	margin-bottom: 20px;
+	line-height: 1.5;
+	font-size: 4.2rem;
+}
+.feature5 .content .teachers{
+	margin-top: 65px;
+	margin-bottom: 1px;
+	width: 100%;
+	height: 710px;
+}
+.feature5 .content .teachers .teacher{
+	margin-bottom: 20px;
+	width: 470px;
+	height: 340px;
+	float: left;
+	position: relative;
+	background: url(images/img3.png);
+}
+.feature5 .content .teachers .teacher:first-child{
+	margin-right: 20px;
+}
+.feature5 .content .teachers .teacher:last-child{
+	margin-left: 20px;
+}
+.feature5 .content .teachers .teacher .foreground{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	text-align: center;
+}
+.feature5 .content .teachers .teacher:hover .foreground{
+	display: block;
+}
+.feature5 .content .teachers .teacher .foreground h3{
+	padding: 100px 0 10px;
+	line-height: 1.5;
+	font-size: 2rem;
+	font-weight: 400;
+	color: #eee;
+}
+.feature5 .content .teachers .teacher .foreground p{
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+.feature5 .content .teachers .teacher .foreground .icon{
+	margin-top: 30px;
+}
+.feature5 .content .teachers .teacher .foreground .icon a{
+	display: inline-block;
+	margin:0 15px;
+	width: 50px;
+	height: 50px;
+	border: 1px #ccc solid;
+	border-radius: 25px;
+	line-height: 60px;
+}
+
+/*feature6*/
+.feature6{
+	width: 100%;
+	height: 700px;
+	background: #fff;
+}
+.feature6 .content{
+	margin: 0 auto;
+	padding: 70px 0;
+	width: 60%;
+	height: 100%;
+}
+.feature6 .content .free{
+	width: 470px;
+	height: 100%;
+	float: left;
+	border: 1px #e7e7e7 solid;
+	border-radius: 10px;
+}
+.feature6 .content .free h4{
+	margin-top: 45px;
+	font-size: 1.6rem;
+	text-align: center;
+	font-weight: 400;
+}
+.feature6 .content .free form{
+	margin: 40px auto 0;
+	width: 370px;
+}
+.feature6 .content .free form input{
+	margin-bottom: 30px;
+	padding-left: 20px;
+	width: 100%;
+	height: 50px;
+	border: 1px #e7e7e7 solid;
+	border-radius: 2px;
+	font-size: 1.6rem;
+	font-weight: 400;
+}
+.feature6 .content .free form textarea{
+	margin-bottom: 30px;
+	padding-left: 20px;
+	width: 100%;
+	height: 145px;
+	resize:none;
+	overflow:hidden;
+	border: 1px #e7e7e7 solid;
+	border-radius: 2px;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 1.5;
+}
+.feature6 .content .free form [name="submit"]{
+	background: #000;
+	color: #eee;
+}
+.feature6 .content .message{
+	width: 370px;
+	float: right;
+}
+.feature6 .content .message .title h1{
+	margin: 80px 0 30px;
+	font-size: 4.2rem;
+	font-weight: 100;
+	line-height: 1.5;
+}
+.feature6 .content .message .about-us-all{
+	margin-top: 65px;
+	height: 160px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.feature6 .content .message .about-us-all .about-us{
+	display: flex;
+}
+.feature6 .content .message .about-us-all .about-us .icon{
+	margin: 7px 10px 0 0 ;
+	width: 25px;
+	height: 25px;
+}
+.feature6 .content .message .about-us-all .about-us p{
+	color: #333;
+}
+
+/*footer*/
+.footer{
+	width: 100%;
+	height: 410px;
+	background: #000;
+}
+.footer .content{
+	margin: 0 auto;
+	width: 1170px;
+	display: flex;
+}
+.footer .content .menu{
+	margin-top: 80px;
+	width: 270px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.footer .content .menu ul{
+	height: 205px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.footer .content .menu h3{
+	font-size: 1.4rem;
+	font-weight: 700;
+	color: #eee;
+}
+.footer .content .menu .icon{
+	margin-bottom: 55px;
+}
+.footer .content .menu .icon a{
+	margin-right: 20px;
+	opacity: 0.5;
+}
