@@ -1,0 +1,256 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 10px;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+p{
+	font-size: 1.4rem;
+}
+h3{
+	font-size: 1.6rem;
+}
+h4{
+	font-size: 1.4rem;
+}
+h5{
+	font-size: 1.2rem;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #b7c0cd;
+}
+html,body{
+	height: 100%;
+}
+
+
+#app{
+	height: 100%;
+}
+.clearfix::after{
+	clear: both;
+	display: block;
+	content: "这是清除浮动"
+	height: 0;
+	visibility: hidden;
+}
+#menu{
+	width: 350px;
+	height: 100%;
+	float: left;
+}
+.on{
+	background: url(images/ActiveHighlight.png) no-repeat -11px;
+}
+.m-num{
+	width: 30px;
+	height: 20px;
+	background: #279cf3;
+	border-radius: 100px;
+	line-height: 1.5;
+	color: #fff;
+	font-weight: 700;
+	font-size: 1.2rem;
+	text-align: center;
+}
+.selected{
+	color: #fff;
+}
+.caveat{
+	width: 20px;
+	height: 20px;
+	background: #e64528 url(images/!.png) no-repeat center;
+	border-radius: 100px;
+}
+
+.nav{
+	width: 100px;
+	height: 100%;
+	background: #1d2531;
+	float: left;
+	position: relative;
+}
+.nav .icons{
+	width: 100%;
+	position: absolute;
+	top: 20px;
+}
+.nav .icons .icon-out{
+	width: 100%;
+	padding: 0 20px;
+}
+.nav .icons .icon{
+	margin-bottom: 20px;
+	display: block;
+	width: 100%;
+	height: 60px;
+	border-radius: 100px;
+}
+
+.nav .icons .paper{
+	background: url(images/PaperIcon.png) no-repeat center;
+	background-color: #2a9ff6 ;
+}
+.nav .icons .rocket{
+	background: #805de6 url(images/RocketIcon.png) no-repeat center;
+}
+.nav .icons .game{
+	background: #d22e12 url(images/GameIcon.png) no-repeat center;
+}
+.nav .icons .plus{
+	background: url(images/PlusIcon.png) no-repeat center;
+	border: 3px #2d3848 solid;
+}
+.nav .features{
+	position: absolute;
+	bottom: 15px;
+	left: 25px;
+}
+.nav .features .feature{
+	margin-right: 15px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+.nav .features .grid{
+	background: url(images/Grid.png) no-repeat center;
+}
+.nav .features .settings{
+	background: url(images/Settings.png) no-repeat center;
+}
+
+.menu{
+	width: 250px;
+	height: 100%;
+	background: #222c3c;
+	float: right;
+	position: relative;
+}
+.menu .menu-nav{
+	
+}
+.menu .nav-menu,.menu .nav-products,.menu .nav-dashboard{
+	
+	width: 100%;
+}
+.menu .menu-nav .title{
+	padding: 20px 0;
+	border-top: 1px #5b6779 solid;
+	margin: 0 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.menu .menu-nav .nav-menu .title{
+	border: none;
+}
+.menu .menu-nav .title h5{
+	color: #5b6779;
+}
+.menu .menu-nav li{
+	margin: 0 0 20px;
+	padding: 0 20px;
+	height: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.menu .menu-nav li a{
+	
+	font-size: 1.4rem;
+	display: flex;
+}
+.menu .menu-nav li a img{
+	width: 16px;
+	margin: auto;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.menu .menu-nav li>img{
+	padding: 0 10px;
+	display: inline-block;
+	border-radius: 100px;
+	background: #e64528;
+}
+
+.menu .menu-goals{
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	width: 210px;
+}
+.menu .menu-goals .goals{
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.menu .menu-goals .goals span{
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+.menu .menu-goals .progress{
+	width: 100%;
+	height: 5px;
+	border-radius: 100px;
+	background: #2d3848;
+}
+.menu .menu-goals .progress span{
+	width: 18.125%;
+	background: linear-gradient(to right, #5d31de, #9c8de3);
+	float: left;
+	height: 5px;
+	border-radius: 100px;
+}
+
+
+#message{
+	margin-left: 350px;
+	height: 100%;
+}
+#message .header{
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px #f2f2f2 solid;
+	display: flex;
+	justify-content: space-between;
+}
+#message .header span{
+	margin: auto 30px;
+	font-size: 2.4rem;
+}
+#message .header .profile{
+	margin: auto 30px;
+	padding-right: 50px;
+	display: flex;
+	cursor: Pointer;
+	background: url(images/dropdown.png) no-repeat right center;
+}
+#message .header .profile .aevter{
+	width: 50px;
+	height: 50px;
+	background: url(images/Face15.png) no-repeat;
+	background-size: 50px 50px;
+	border-radius: 100px;
+	position: relative;
+}
+#message .header .profile .aevter img{
+	border: 3px #fff solid;
+	background: #fff;
+	border-radius: 100px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#message .header .profile .name{
+	margin: auto 15px;
+}
+#message .header .profile .name h3{
+	color: #2399f1;
+}
+#message .header .profile .name p{
+	color: #b5b5b5;
+}
