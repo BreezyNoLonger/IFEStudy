@@ -41,10 +41,10 @@ html,body{
 	height: 100%;
 }
 .clearfix::after{
-	clear: both;
 	display: block;
-	content: "这是清除浮动"
 	height: 0;
+	clear: both;
+	content: "这是清除浮动"
 	visibility: hidden;
 }
 #menu{
@@ -89,8 +89,8 @@ html,body{
 	top: 20px;
 }
 .nav .icons .icon-out{
-	width: 100%;
 	padding: 0 20px;
+	width: 100%;
 }
 .nav .icons .icon{
 	margin-bottom: 20px;
@@ -115,13 +115,16 @@ html,body{
 	border: 3px #2d3848 solid;
 }
 .nav .features{
+	padding: 15px 25px;
+	width: 100px;
+	height: 46px;
+	display: flex;
+	justify-content: space-between;
 	position: absolute;
-	bottom: 15px;
-	left: 25px;
+	bottom: 0;
+	left: 0;
 }
 .nav .features .feature{
-	margin-right: 15px;
-	display: inline-block;
 	width: 16px;
 	height: 16px;
 }
@@ -133,16 +136,13 @@ html,body{
 }
 
 .menu{
+	padding-bottom: 70px;
 	width: 250px;
 	height: 100%;
 	background: #222c3c;
 	float: right;
 }
-.menu .menu-nav{
-	
-}
 .menu .nav-menu,.menu .nav-products,.menu .nav-dashboard{
-	
 	width: 100%;
 }
 .menu .menu-nav .title{
@@ -166,14 +166,13 @@ html,body{
 	justify-content: space-between;
 }
 .menu .menu-nav li a{
-	
 	font-size: 1.4rem;
 	display: flex;
 }
 .menu .menu-nav li a img{
-	width: 16px;
 	margin: auto;
 	margin-right: 10px;
+	width: 16px;
 	vertical-align: middle;
 }
 .menu .menu-nav li>img{
@@ -189,7 +188,6 @@ html,body{
 	position: absolute;
 	bottom: 0;
 	left: 100px;
-	
 	background-color: #222c3c;
 }
 .menu .menu-goals .goals{
@@ -210,9 +208,9 @@ html,body{
 }
 .menu .menu-goals .progress span{
 	width: 18.125%;
+	height: 5px;
 	background: linear-gradient(to right, #5d31de, #9c8de3);
 	float: left;
-	height: 5px;
 	border-radius: 100px;
 }
 
@@ -323,14 +321,10 @@ html,body{
 	cursor: Pointer;
 }
 #message .message .chats .chat{
+	padding-bottom: 150px;
 	width: 100%;
 	height: 100%;
 	border-right: 1px #e2e2e2 solid;
-}
-#message .message .chats .chat ul{
-	padding-bottom: 130px;
-	width: 100%;
-	height: 100%;
 }
 #message .message .chats .chat li{
 	padding: 15px 20px 20px 30px;
@@ -343,7 +337,6 @@ html,body{
 	width: 100%;
 	height: 45px;
 }
-
 #message .message .chats .chat li .profile .aevter[order="1"]{
 	background-image: url(images/Face1.png);
 }
@@ -393,12 +386,12 @@ html,body{
 	display: flex;
 }
 #message .message .chats .chat li .record p{
+	height: 3em;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	overflow: hidden;
 	line-height: 1.5em;
-	height: 3em;
 	overflow: hidden;
 	color: #585d68;
 }
@@ -469,15 +462,12 @@ html,body{
 }
 #message .message .openchat .content{
 	padding-top: 10px;
-	padding-bottom: 150px;
+	padding-bottom: 230px;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-}
-#message .message .openchat .content .days{
-	margin-bottom: 80px;
 }
 #message .message .openchat .content .day{
 	padding: 15px 50px 15px 30px;
@@ -513,8 +503,8 @@ html,body{
 }
 #message .message .openchat .content .day-border .border{
 	margin: auto;
-	flex: 1;
 	padding: 0.5px 0;
+	flex: 1;
 	border-top: 1px #e2e2e2 solid;
 }
 #message .message .openchat .content .day-border .date{
