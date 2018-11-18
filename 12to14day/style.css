@@ -26,10 +26,16 @@ a{
 }
 html,body{
 	height: 100%;
-	min-height: 720px;
 	overflow: hidden;
 }
-
+.overflowFa{
+	overflow: hidden;
+}
+.overflowSon{
+	width: calc(100% + 17px) !important;
+	height: 100%;
+	overflow-y: scroll;
+}
 
 #app{
 	height: 100%;
@@ -131,7 +137,6 @@ html,body{
 	height: 100%;
 	background: #222c3c;
 	float: right;
-	position: relative;
 }
 .menu .menu-nav{
 	
@@ -179,10 +184,13 @@ html,body{
 }
 
 .menu .menu-goals{
+	padding: 10px 20px 20px;
+	width: 250px;
 	position: absolute;
-	bottom: 20px;
-	left: 20px;
-	width: 210px;
+	bottom: 0;
+	left: 100px;
+	
+	background-color: #222c3c;
 }
 .menu .menu-goals .goals{
 	margin-bottom: 10px;
@@ -320,7 +328,9 @@ html,body{
 	border-right: 1px #e2e2e2 solid;
 }
 #message .message .chats .chat ul{
-
+	padding-bottom: 130px;
+	width: 100%;
+	height: 100%;
 }
 #message .message .chats .chat li{
 	padding: 15px 20px 20px 30px;
@@ -459,10 +469,15 @@ html,body{
 }
 #message .message .openchat .content{
 	padding-top: 10px;
+	padding-bottom: 150px;
 	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+#message .message .openchat .content .days{
+	margin-bottom: 80px;
 }
 #message .message .openchat .content .day{
 	padding: 15px 50px 15px 30px;
@@ -551,8 +566,13 @@ html,body{
 	color: #2399f1;
 }
 #message .message .openchat .content form{
-	margin: 10px 30px 20px 30px;
-	height: 50px;
+	padding: 10px 30px 20px 30px;
+	width: calc(100% - 750px);
+	height: 80px;
+	position: absolute;
+	left: 750px;
+	bottom: 0;
+	background-color: #fff;
 }
 #message .message .openchat .content form [type="submit"]{
 	width: 50px;
