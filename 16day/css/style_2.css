@@ -1,0 +1,41 @@
+*{
+	margin:  0;
+	padding: 0;
+	box-sizing: border-box;
+}
+h1{
+	float: left;
+	background: #18c;
+	width: 200px;
+	/*height: 100%;*/
+	text-align: center;
+	padding-top: 50px;
+	color: #FFF;
+}
+h2{
+	margin: 0;
+}
+li{
+	list-style: none;
+	margin: 20px;
+	margin-left: 0;
+}
+
+.all{
+	display: flex;
+	min-width: 800px;
+	margin: 50px auto;
+}
+.content{
+	margin-left: 20px;
+}
+.left{
+	float: left;
+}
+.clearfix::after{
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
