@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+	<button id="fade-btn">淡出</button>
+    <script type="text/javascript">
+        var btn = document.querySelector("#fade-btn");
+        var fadeObj = document.querySelector("#fade-obj");
+        var count = 100;
+        var sD = null;
+        var sU = null;
+        btn.onclick = function(){
+            //按钮文字为淡出时，点击后按钮不可点击
+            //同时在之后的1s内执行上方方块淡出效果
+            //动画结束后按钮可点击，且文字变为淡入
+            if (btn.textContent === "淡出") {
+                btn.disabled = true;
+                sD = setInterval(function(){
+                    if (count > 0) {
+                        count--;
+                        fadeObj.style.opacity = count/100;
+                        console.log(count);
+                    } else {
+                        btn.textContent = "淡入";
+                        clearTimeout(sD);
+                        btn.disabled = false;
+                    }
+                }, 10)
+                
+            //按钮文字为淡入时，点击后按钮不可点击
+            //同时在之后的1s内执行上方方块淡入效果
+            //动画结束后按钮可点击，且文字变为淡出
+            } else if (btn.textContent === "淡入") {
+                btn.disabled = true;
+                sU = setInterval(function(){
+                    if (count < 100) {
+                        count++;
+                        fadeObj.style.opacity = count/100;
+                        console.log(count);
+                    } else {
+                        btn.textContent = "淡出";
+                        clearTimeout(sU);
+                        btn.disabled = false;
+                    }
+                }, 10)
+                
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<input id="name" type="text">    
+	<button id="submit-btn">Submit</button>
+	<script>
+		var btn = document.querySelector("#submit-btn");
+		var myName = document.querySelector("#name");
+
+		function con() {
+			console.log(myName.value);
+		}
+
+		function dothis(e) {
+			e = e || window.event || arguments.callee.caller.arguments[0];
+			if (e && e.keyCode == 13) {
+				console.log(myName.value);
+			} else if (e && e.keyCode == 27) {
+				myName.value = "";
+			}
+		}
+
+		btn.onclick = con;
+		myName.onkeydown = function(e) {dothis(e)};
+	</script>
+</body>
+</html>
