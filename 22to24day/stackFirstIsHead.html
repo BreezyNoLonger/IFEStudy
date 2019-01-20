@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<input id="stack-input" type="text">
+	<p id="stack-cont">栈内容：apple&lt;-pear</p>    
+	<button id="push-btn">进栈</button>
+	<button id="pop-btn">退栈</button>
+	<button id="font-btn">打印栈顶元素内容</button>
+	<button id="empty-btn">判断栈是否为空</button>
+	
+	<script>
+	
+		var stack = ["apple", "pear"];
+
+		var stackInput = document.getElementById("stack-input");
+		var stackCont = document.getElementById("stack-cont");
+		var inBtn = document.getElementById("push-btn");
+		var outBtn = document.getElementById("pop-btn");
+		var fontBtn = document.getElementById("font-btn");
+		var emptyBtn = document.getElementById("empty-btn");
+		
+		inBtn.onclick = function(){
+			if (stackInput.value !== "") {
+				stack.unshift(stackInput.value);
+			}
+			stackCont.textContent = "栈内容：" + stack.join("<-");
+		}
+
+		outBtn.onclick = function(){
+			stack.shift();
+			stackCont.textContent = "栈内容：" + stack.join("<-");
+		}
+
+		fontBtn.onclick = function(){
+			stackCont.textContent = stack.length === 0 ? "栈头无元素" : ("栈头元素内容：" + stack[0]);
+		}
+
+		emptyBtn.onclick = function(){
+			stackCont.textContent = stack.length === 0 ? "栈为空" : "栈不为空";
+		}
+	
+	</script>
+
+</body>
+</html>

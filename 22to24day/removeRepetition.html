@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		去掉字符串str中，连续重复的地方
+		*/
+		function removeRepetition(str) {
+		    var result = "";
+		
+		    var len = str.length;
+		    for (let i = 0; i < len; i++) {
+		    	if (result.length === 0) {
+		    		result = str[i];
+		    	} else {
+		    		if (result.lastIndexOf(str[i])  === result.length - 1) {
+		    		} else {
+		    			result += str[i];
+		    		}
+		    	}
+		    	
+		    }
+		
+		    return result;
+		}
+		
+		// 测试用例
+		console.log(removeRepetition("aaa")); // ->a
+		console.log(removeRepetition("abbba")); // ->aba
+		console.log(removeRepetition("aabbaabb")); // ->abab
+		console.log(removeRepetition("")); // ->
+		console.log(removeRepetition("abc")); // ->abc
+	</script>
+</body>
+</html>

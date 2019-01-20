@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var scoreObject = {
+    		"Tony": {
+    		    "Math": 95,
+    		    "English": 79,
+    		    "Music": 68
+    		}, 
+    		"Simon": {
+    		    "Math": 100,
+    		    "English": 95,
+    		    "Music": 98
+    		}, 
+    		"Annie": {
+    		    "Math": 54,
+    		    "English": 65,
+    		    "Music": 88
+    		}
+		}
+
+		var scoreArray = new Array();
+		for (let i = 0; i < 3; i++) {
+			scoreArray[i] = new Array();
+		}
+		// for (let i = 0)
+		var count1 = 0;
+		var count2 = 1;
+		for (let i in scoreObject) {
+			scoreArray[count1][0] = i;
+			for (let j in scoreObject[i]) {
+				scoreArray[count1][count2] = scoreObject[i][j];
+				count2++;
+			}
+			count2 = 1;
+			count1++;
+		}
+		// for (let i in scoreArray) {
+			console.log(scoreArray);
+		// }
+	</script>
+</body>
+</html>

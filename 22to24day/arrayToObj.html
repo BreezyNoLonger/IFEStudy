@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var menuArr = [
+		    [1, "Area1", -1],
+		    [2, "Area2", -1],
+		    [3, "Area1-1", 1],
+		    [4, "Area1-2", 1],
+		    [5, "Area2-1", 2],
+		    [6, "Area2-2", 2],
+		    [7, "Area1-2-3", 4],
+		    [8, "Area2-2-1", 6],
+		];
+
+		var menuObject = {};
+		//无法想出带参函数来简化，故使用以下方法强行输出
+		function haveSon(){
+			var fKey;
+			for (let i in menuArr) {
+				let fKey = menuArr[i][2];
+				if (fKey < 0) {
+					menuObject[menuArr[i][0] + ""] = {};
+					menuObject[menuArr[i][0] + ""]["name"] = menuArr[i][1];
+				}else if (fKey > 0 && fKey < 3) {
+					menuObject[fKey + ""]["sunMenu"] ? menuObject[fKey + ""]["sunMenu"] : menuObject[fKey + ""]["sunMenu"] = {}
+					menuObject[fKey + ""]["sunMenu"][menuArr[i][0] + ""] = {};
+					menuObject[fKey + ""]["sunMenu"][menuArr[i][0] + ""]["name"] = menuArr[i][1];
+				} else {
+					menuObject[menuArr[fKey-1][2] + ""]["sunMenu"][fKey + ""]["sunMenu"] ? menuObject[menuArr[fKey-1][2] + ""]["sunMenu"][fKey + ""]["sunMenu"] : menuObject[menuArr[fKey-1][2] + ""]["sunMenu"][fKey + ""]["sunMenu"] = {};
+					menuObject[menuArr[fKey-1][2] + ""]["sunMenu"][fKey + ""]["sunMenu"][menuArr[i][0] + ""] = {};
+					menuObject[menuArr[fKey-1][2] + ""]["sunMenu"][fKey + ""]["sunMenu"][menuArr[i][0] + ""]["name"] = menuArr[i][1];
+				}
+			}
+		}
+		haveSon();
+		console.log(menuObject);
+	</script>
+</body>
+</html>
