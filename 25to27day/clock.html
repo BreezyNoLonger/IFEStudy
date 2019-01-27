@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<p id="clock"></p>
+	<script type="text/javascript">
+		var clock = document.getElementById("clock");
+		function getWeek(myDate){
+			var myDay = ["天", "一", "二", "三", "四", "五", "六"];
+			return "星期" + myDay[myDate.getDay()] + " ";
+		}
+		function getEnglishWeek(myDate){
+			var myDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			return myDay[myDate.getDay()] + " ";
+		}
+
+		function getMonth(myDate){
+			return myFormat(myDate.getMonth() + 1);
+		}
+
+		function myFormat(x){
+			if (x < 10) {
+				x = "0" + x;
+			}
+			return x;
+		}
+
+		function getTime(myDate){
+			return myFormat(myDate.getHours()) + ":" + myFormat(myDate.getMinutes()) + ":" + myFormat(myDate.getSeconds());
+		}
+		function getEnglishTime(myDate){
+			if (myDate.getHours()>=12) {
+				return (myFormat(myDate.getHours()) - 12) + ":" + myFormat(myDate.getMinutes()) + ":" + myFormat(myDate.getSeconds()) + " PM";
+			} else {
+				return myFormat(myDate.getHours()) + ":" + myFormat(myDate.getMinutes()) + ":" + myFormat(myDate.getSeconds());
+			}
+		}
+
+		function getDay(myDate){
+			return myDate.getFullYear() + "年 " + getMonth(myDate) + "月 " + myDate.getDate() + "日 ";
+		}
+		function getEnglishDay(myDate){
+			return myDate.getFullYear() + "-" + getMonth(myDate) + "-" + myDate.getDate() + " ";
+		}
+
+		function setClockTime(){
+			var myDate = new Date();
+			clock.textContent = getDay(myDate) + getWeek(myDate) + getTime(myDate);
+		}
+		function setEnglishClockTime(){
+			var myDate = new Date();
+			clock.textContent = getEnglishDay(myDate) + getEnglishWeek(myDate) + getEnglishTime(myDate);
+		}
+
+		function setTwoClockTime(){
+			var myDate = new Date();
+			clock.innerHTML = getDay(myDate) + getWeek(myDate) + getTime(myDate) + "<br/>" + getEnglishDay(myDate) + getEnglishWeek(myDate) + getEnglishTime(myDate);
+		}
+
+		setTwoClockTime();
+		setInterval(setTwoClockTime,1000);
+	</script>
+</body>
+</html>

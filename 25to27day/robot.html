@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Go() {
+    		console.log("Go");
+		}
+
+		function GoSteps(n) {
+
+			if (n === undefined) {
+				n = 1;
+			}
+
+			if (!isNaN(n)) {
+				n = Math.floor(n);
+				while (n>0) {
+					Go();
+					n--;
+				}
+			}
+			// isNaN(n) ? console.log("请输入数字") : ()
+		}
+
+		GoSteps(20);
+	</script>
+</body>
+</html>
