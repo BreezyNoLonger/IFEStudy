@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		li{
+			padding-left: 1em;
+			list-style: none;
+			line-height: 1.5;
+			cursor: default;
+		}
+		li:hover{
+			background-color: #acf;
+		}
+		.wrapper{
+			width: 200px;
+			margin: 100px auto;
+		}
+		#email-input{
+			box-sizing: border-box;
+			width: 200px;
+		}
+		#email-sug-wrapper{
+			width: 200px;
+			border: 1px #ccc solid;
+			border-top: none;
+		}
+		.hide{
+			display: none;
+		}
+		.on{
+			background-color: #f9c2cc;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+    	<input id="email-input" type="text">
+    	<ul id="email-sug-wrapper" class="email-sug"></ul>
+	</div>
+
+	<script type="text/javascript">
+		var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+		var inputDom = document.getElementById("email-input");
+		var emailSug = document.getElementById("email-sug-wrapper");
+		var selectLi = 0;
+		//加载完毕后输入框获得焦点
+		window.onload = function(){
+			getFocus();
+		}
+		//输入字符后的行为
+		inputDom.oninput = function(){
+			addLiToUl();
+			resetOn();
+			ulOnOrOff();
+		}
+		//特殊按键监控
+		inputDom.onkeydown = function(event){
+			var e = event || window.event || arguments.callee.caller.arguments[0];
+			var tempLis = emailSug.getElementsByTagName("li")
+			var lis = new Object();
+			var tempCount = 0;
+			for (let i in tempLis) {
+				if (tempLis[i].tagName){
+					if (tempLis[i].className.indexOf(" hide") !== -1) {
+					continue;
+				}
+				lis[tempCount] = (tempLis[i]);
+				tempCount++;
+				}
+			}
+			var len = Object.keys(lis).length;
+			switch (e.keyCode){
+				//回车键
+				case 13:
+					inputDom.value = HtmlUtil["htmlDecodeByRegExp"](lis[selectLi].innerHTML);
+					emailSug.className = "email-sug hide";
+					break;
+				//ESC键
+				case 27:
+					inputDom.select();
+					break;
+				//上方向键
+				case 38:
+					if (lis[selectLi]) {
+						lis[selectLi].className = "";
+						if (selectLi == 0) {
+							selectLi = len - 1;
+						} else {
+							selectLi --;
+						}
+						lis[selectLi].className = "on";
+					}
+					break;
+				//下方向键
+				case 40:
+					if (lis[selectLi]) {
+						lis[selectLi].className = "";
+						if (selectLi == len - 1) {
+							selectLi = 0;
+						} else {
+							selectLi ++;
+						}
+						lis[selectLi].className = "on";
+					}
+					break;
+			}
+		}
+		//委托父元素ul监听子元素li的点击事件
+		emailSug.onclick = function(event){
+			var tg = event.target;
+			if (tg.tagName === "LI") {
+				inputDom.value = HtmlUtil["htmlDecodeByRegExp"](tg.innerHTML);
+				emailSug.className = "email-sug hide";
+				getFocus();
+			}
+		}
+		//获取输入
+		function getInput(){
+			var result = "";
+			var str = inputDom.value;
+		    var len = str.length;
+		    for (let i = 0; i < len; i++) {
+		    	if (str.charCodeAt(i) === 12288 || str.charCodeAt(i) === 32) {
+		    		result += "";
+		    	} else {
+		    		result += str[i];
+		    	}
+		    }
+		    return result;
+		}
+		//重置被选择li的位置
+		function resetOn(){
+			var lis = emailSug.getElementsByTagName("li");
+			lis[selectLi].className = "";
+			selectLi = 0;
+			lis[selectLi].className = "on";
+		}
+		//提示信息
+		function tips(){
+			var temp = getInput();
+			var texts = new Array();
+			var textsC = new Array();
+			if (temp.indexOf("@") !== -1) {
+				var tempPostfix = temp.substr(temp.indexOf("@")+1);
+		    	temp = temp.substr(0, temp.indexOf("@"));
+		    }
+		    let count = 0;
+		    for (let i in postfixList) {
+		    	if (postfixList[i].indexOf(tempPostfix) === 0) {
+					textsC[count] = temp + "@" + postfixList[i];
+					count++;
+				}
+				texts[i] = temp + "@" + postfixList[i];
+		    }
+		    if (count === 0) {
+				return texts;
+			} else {
+				return textsC;
+			}
+		}
+		//添加li到ul中，或修改li的内容
+		function addLiToUl(){
+			var texts = tips();
+			var lis = emailSug.getElementsByTagName("li");
+			//如果ul没有子元素
+			if (!lis[0]) {
+				for (let i in texts){
+					var myLi = document.createElement("li");
+					let text = document.createTextNode(HtmlUtil["htmlEncodeByRegExp"](texts[i]));
+					myLi.appendChild(text);
+					emailSug.appendChild(myLi);
+				}
+			//如果ul有子元素
+			} else {
+				for (let i in texts){
+					lis[i].innerHTML = HtmlUtil["htmlEncodeByRegExp"](texts[i]);
+				}
+				if (lis.length !== texts.length) {
+					for (let j = texts.length; j < lis.length; j++) {
+						if (lis[j].className.indexOf("hide") === -1) {
+							lis[j].className += " hide";
+						}
+					}
+				} else {
+					for (let j = 0; j < lis.length; j++) {
+						lis[j].className = lis[j].className.replace(" hide", "");
+					}
+				}
+			}
+		}
+		//ul是否可见
+		function ulOnOrOff(){
+			if (getInput() !== "") {
+				ulOn();
+			} else {
+				ulOff();
+			}
+		}
+
+		function ulOn(){
+			emailSug.className = "email-sug";
+		}
+
+		function ulOff(){
+			emailSug.className = "email-sug hide";
+		}
+
+		function getFocus(){
+			inputDom.focus();
+		}
+		//直接摆渡抄的
+		//用来转码
+		var HtmlUtil = {
+    	    /*1.用浏览器内部转换器实现html转码*/
+    	    htmlEncode:function (html){
+    	        //1.首先动态创建一个容器标签元素，如DIV
+    	        var temp = document.createElement ("div");
+    	        //2.然后将要转换的字符串设置为这个元素的innerText(ie支持)或者textContent(火狐，google支持)
+    	        (temp.textContent !== undefined ) ? (temp.textContent = html) : (temp.innerText = html);
+    	        //3.最后返回这个元素的innerHTML，即得到经过HTML编码转换的字符串了
+    	        var output = temp.innerHTML;
+    	        temp = null;
+    	        return output;
+    	    },
+    	    /*2.用浏览器内部转换器实现html解码*/
+    	    htmlDecode:function (text){
+    	        //1.首先动态创建一个容器标签元素，如DIV
+    	        var temp = document.createElement("div");
+    	        //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+    	        temp.innerHTML = text;
+    	        //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+    	        var output = temp.innerText || temp.textContent;
+    	        temp = null;
+    	        return output;
+    	    },
+    	    /*3.用正则表达式实现html转码*/
+    	    htmlEncodeByRegExp:function (str){ 
+    	        var s = "";
+    	        if(str.length === 0) return "";
+    	        s = str.replace(/&/g,"&amp;");
+				s = s.replace(/</g,"&lt;");
+				s = s.replace(/>/g,"&gt;");
+				s = s.replace(/ /g,"&nbsp;");
+				s = s.replace(/\'/g,"&#39;");
+				s = s.replace(/\"/g,"&quot;");
+				return s;
+			},
+    	   /*4.用正则表达式实现html解码*/
+    	    htmlDecodeByRegExp:function (str){ 
+    	        var s = "";
+    	        if(str.length === 0) return "";
+				s = str.replace(/&amp;/g,"&");
+				s = s.replace(/&lt;/g,"<");
+				s = s.replace(/&gt;/g,">");
+				s = s.replace(/&nbsp;/g," ");
+				s = s.replace(/&#39;/g,"\'");
+				s = s.replace(/&quot;/g,"\"");
+				return s; 
+			}
+    	};
+	</script>
+</body>
+</html>
