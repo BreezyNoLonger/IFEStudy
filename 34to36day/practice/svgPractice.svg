@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+
+<line x1="10" y1="10" x2="250" y2="200"
+style="stroke-width:1;stroke:#000"/>
+
+<rect x="500" y="50" width="50" height="75" 
+	style="fill:#acf;stroke-width:1
+	stroke:#000"/>
+
+<circle cx="200" cy="50" r="40" fill="#abc"/>
+
+<text x="250" y="50">
+	你逊爆了
+</text>
+
+<circle cx="200" cy="250" r="40" 
+	stroke="#000" stroke-width="1" fill="#fff"/>
+
+<path d="M182 215 
+	c6 -30 12 -50 18 -60
+	c6 10 12 30 18 60"
+	style="fill:#fff;stroke:#000;stroke-width:1"/>
+<path d="M235 232 
+	c30 6 50 12 60 18
+	c-10 6 -30 12 -60 18"
+	style="fill:#fff;stroke:#000;stroke-width:1"/>
+</svg>
