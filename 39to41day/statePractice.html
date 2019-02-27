@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<button id="a">A</button>
+	<button id="b">B</button>
+	<button id="c">C</button>
+
+	<button id="d">D</button>
+	<button id="e">E</button>
+	<button id="f">F</button>
+
+	<div id="contABC"></div>
+	<div id="contDEF"></div>
+
+	<script type="text/javascript">
+		function readState() {
+			return location.href.split('?')[1];
+		}
+		function setState() {
+			var btns = document.querySelectorAll('button');
+			for (let i = 0; i < btns.length; i++) {
+				btns[i].onclick = function() {
+					var inn = btns[i].innerHTML;
+					let contABC = document.querySelector('#contABC');
+					let contDEF = document.querySelector('#contDEF');
+					switch(inn) {
+						case 'A':
+						case 'B':
+						case 'C':
+							contABC.innerHTML = inn;
+							contDEF.innerHTML = '';
+							break;
+						case 'D':
+						case 'E':
+						case 'F':
+							contABC.innerHTML = '';
+							contDEF.innerHTML = inn;
+					}
+					var thisHref = location.href.split('?')[0];
+					var state = readState();
+					if (inn !== state) {
+						history.pushState({}, null, thisHref + '?' + inn);
+					}
+				}
+			}
+		}
+		window.onpopstate = function() {
+			var state = readState();
+			let contABC = document.querySelector('#contABC');
+			let contDEF = document.querySelector('#contDEF');
+			switch(state) {
+				case 'A':
+				case 'B':
+				case 'C':
+					contABC.innerHTML = state;
+					contDEF.innerHTML = '';
+					break;
+				case 'D':
+				case 'E':
+				case 'F':
+					contABC.innerHTML = '';
+					contDEF.innerHTML = state;
+			}
+		}
+		setState();
+	</script>
+</body>
+</html>
