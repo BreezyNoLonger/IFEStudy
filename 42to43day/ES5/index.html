@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript" src="restaurant.js"></script>
+	<script type="text/javascript" src="staff.js"></script>
+	<script type="text/javascript" src="dishes.js"></script>
+	<script type="text/javascript" src="customer.js"></script>
+
+	<script type="text/javascript">
+		var myRestaurant = new Restaurant(100000, 5, []);
+		var cook1 = new Cook(1, '老王', 5000);
+		var waiter1 = new Waiter(1, '小李', 3000);
+		var fan = new Dishes('米饭', 0.5, 1);
+		var hongShaoRou = new Dishes('红烧肉', 8, 16);
+		var fanQieChaoDan = new Dishes('番茄炒蛋', 4, 8);
+
+		myRestaurant.hire(cook1);
+		myRestaurant.hire(waiter1);
+		console.log('-----------------');
+
+		var customer1 = new Customer();
+		myRestaurant.seated(1);
+		var theMenu1 = customer1.order([fan, hongShaoRou]);
+		waiter1.finishWork(theMenu1);
+		cook1.finishWork();
+		waiter1.finishWork();
+		customer1.eat();
+		console.log('-----------------');
+
+		var customer2 = new Customer();
+		myRestaurant.seated(2);
+		var theMenu2 = customer2.order([fan, hongShaoRou]);
+		waiter1.finishWork(theMenu2);
+		cook1.finishWork();
+		waiter1.finishWork();
+		customer2.eat();
+		console.log('-----------------');
+
+		var customer3 = new Customer();
+		myRestaurant.seated(3);
+		var theMenu3 = customer3.order([fan, hongShaoRou]);
+		waiter1.finishWork(theMenu3);
+		cook1.finishWork();
+		waiter1.finishWork();
+		customer3.eat();
+		console.log('-----------------');
+
+		var customer4 = new Customer();
+		myRestaurant.seated(4);
+		var theMenu4 = customer4.order([fan, hongShaoRou]);
+		waiter1.finishWork(theMenu4);
+		cook1.finishWork();
+		waiter1.finishWork();
+		customer4.eat();
+		console.log('-----------------');
+
+		var customer5 = new Customer();
+		myRestaurant.seated(5);
+		var theMenu5 = customer5.order([fan, hongShaoRou]);
+		waiter1.finishWork(theMenu5);
+		cook1.finishWork();
+		waiter1.finishWork();
+		customer5.eat();
+		console.log('-----------------');
+
+		var customer6 = new Customer();
+		myRestaurant.seated(6);
+		myRestaurant.checkOut(1);
+		var theMenu6 = customer6.order([fan, hongShaoRou]);
+		waiter1.finishWork(theMenu6);
+		cook1.finishWork();
+		waiter1.finishWork();
+		customer6.eat();
+		console.log('-----------------');
+
+		myRestaurant.checkOut(2);
+		myRestaurant.checkOut(3);
+		myRestaurant.checkOut(4);
+		myRestaurant.checkOut(5);
+		myRestaurant.checkOut(1);
+
+		myRestaurant.fire(waiter1);
+
+	</script>
+</body>
+</html>
