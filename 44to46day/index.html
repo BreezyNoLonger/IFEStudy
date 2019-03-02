@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript" src="js/restaurant.js"></script>
+	<script type="text/javascript" src="js/staff.js"></script>
+	<script type="text/javascript" src="js/dishes.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/customer.js"></script>
+
+	<script type="text/javascript">
+		var myRestaurant = new Restaurant(100000, 1, []);
+		var cook1 = Cook.getInstance(1, '老王', 5000);
+		var waiter1 = Waiter.getInstance(1, '小李', 3000);
+		myRestaurant.hire(cook1);
+		myRestaurant.hire(waiter1);
+		console.log('-----------------');
+
+		var fan = new Dishes('米饭', 0.5, 1);
+		var hongShaoRou = new Dishes('红烧肉', 8, 16);
+		var fanQieChaoDan = new Dishes('番茄炒蛋', 4, 8);
+
+		var menu = new Menu();
+		menu.addDishes(fan);
+		menu.addDishes(hongShaoRou);
+		menu.addDishes(fanQieChaoDan);
+
+		var customer1 = new Customer(1);
+		myRestaurant.seated(menu, customer1, waiter1);
+
+		var customer2 = new Customer(2);
+		myRestaurant.seated(menu, customer2, waiter1);
+
+		waiter1.cooking(cook1, customer1);
+
+		var customer3 = new Customer(3);
+		myRestaurant.seated(menu, customer3, waiter1);
+		
+		myRestaurant.checkOut(menu, customer1, waiter1);
+		
+		waiter1.cooking(cook1, customer2);
+		myRestaurant.checkOut(menu, customer2, waiter1);
+		
+		waiter1.cooking(cook1, customer3);
+		myRestaurant.checkOut(menu, customer3, waiter1);
+
+	</script>
+</body>
+</html>
