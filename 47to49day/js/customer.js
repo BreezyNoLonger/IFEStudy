@@ -1,6 +1,4 @@
 class Customer{
-	_bill = [];
-	seatNum;
 	constructor() {}
 
 	order(menu) {
@@ -14,12 +12,11 @@ class Customer{
 			setTimeout(function(){
 				console.log("我点好菜了");
 				resolve(bill);
-
 			}, 3000);
 		});
 	}
 
-	eat(dishes) {
-		console.log('我正在吃' + dishes);
+	eat(dish) {
+		console.log('我正在吃' + dish);
 	}
 }

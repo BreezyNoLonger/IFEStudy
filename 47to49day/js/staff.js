@@ -1,5 +1,4 @@
 class Staff{
-	_order = [];
 	constructor(staffId, staffName, staffWage) {
 		this.staffId = staffId;
 		this.staffName = staffName;
