@@ -35,7 +35,8 @@ function shangCai(bill){
 	return new Promise(function(resolve){
 		setTimeout(function(){
 			return resolve(total);
-		}, 1000 * time + 10);
+		// 炒菜时间 + 最后一个菜的吃饭时间 + 程序运行造成的延时缓冲
+		}, 1000 * time + 3000 + 1000);
 	});
 	
 }

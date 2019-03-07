@@ -18,5 +18,8 @@ class Customer{
 
 	eat(dish) {
 		console.log('我正在吃' + dish);
+		setTimeout(function(){
+			console.log("我把" + dish + "吃完了");
+		}, 3000);
 	}
 }
