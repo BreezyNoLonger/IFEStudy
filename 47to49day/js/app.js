@@ -19,8 +19,8 @@ menu.addDishes(laJiaoChaoQingJiao);
 var customer1 = new Customer(1);
 myRestaurant.seated(menu.menu, customer1, myRestaurant).
 	then(customer1.order).then(waiter1.finishWork).
-	then(shangCai);
-	
+	then(shangCai).then(myRestaurant.checkOut);
+// 上菜
 function shangCai(bill){
 	let time = 0;
 	let total = 0;
@@ -32,26 +32,10 @@ function shangCai(bill){
 			then(waiter1.finishWork).then(customer1.eat);
 		}, 1000 * time);
 	}
-	setTimeout(function(){
-		console.log("结账：" + total);
-	}, 1000 * time);
+	return new Promise(function(resolve){
+		setTimeout(function(){
+			return resolve(total);
+		}, 1000 * time + 10);
+	});
+	
 }
-
-
-
-
-// var customer1 = new Customer(1);
-// myRestaurant.seated(menu, customer1, waiter1);
-// var customer2 = new Customer(2);
-// myRestaurant.seated(menu, customer2, waiter1);
-// waiter1.cooking(cook1, customer1);
-// var customer3 = new Customer(3);
-// myRestaurant.seated(menu, customer3, waiter1);
-
-// myRestaurant.checkOut(menu, customer1, waiter1);
-
-// waiter1.cooking(cook1, customer2);
-// myRestaurant.checkOut(menu, customer2, waiter1);
-
-// waiter1.cooking(cook1, customer3);
-// myRestaurant.checkOut(menu, customer3, waiter1);

@@ -42,18 +42,8 @@ class Cook extends Staff{
 
 	finishWork(dish) {
 		return new Promise(function(resolve, reject){
-			// setTimeout(function(){
-				console.log(dish[0] + '完成烹调');
-				resolve(dish[0]);
-			// }, 1000 * time);
-			// let time = 0;
-			// for (let i = 0; i < bill.length; i++){
-			// 	time += bill[i][2];
-			// 	setTimeout(function(){
-			// 		console.log(bill[i][0] + '完成烹调');
-			// 		resolve(bill[i][0]);
-			// 	}, 1000 * time);
-			// }
+			console.log(dish[0] + '完成烹调');
+			resolve(dish[0]);
 		});
 	}
 
