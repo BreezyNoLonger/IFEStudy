@@ -1,0 +1,149 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+img{
+	width: 150px;
+}
+li{
+	list-style: none;
+}
+button{
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	background: #fff;
+	border: 1px solid;
+	position: absolute;
+	top: 10px;
+	left: calc(100% + 10px);
+}
+button:nth-of-type(2){
+	top: 50px;
+}
+button:hover{
+	background: #ccc;
+}
+button:active{
+	background: #acf;
+}
+
+#restaurant{
+	margin: 50px auto;
+	width: 1000px;
+	height: 700px;
+	border: 1px #000 solid;
+	position: relative;
+}
+
+#money{
+	margin: 0 auto;
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #acf;
+	position: absolute;
+	left: calc((100% - 150px)/2);
+}
+
+#kitchen{
+	width: 200px;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+	border-right: 1px #000 solid;
+}
+#kitchen ul{
+	padding: 0 10px;
+	width: 100%;
+	position: absolute;
+	bottom: calc((700px + 150px)/2 + 10px);
+}
+#kitchen li{
+}
+#kitchen img{
+	margin-top: calc((700px - 150px)/2);
+}
+
+#cashier{
+	width: 250px;
+	height: 250px;
+	position: absolute;
+	right: -1px;
+	top: 0;
+}
+#cashRegister{
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	position: absolute;
+	right: 0;
+	bottom: 99px;
+	border: 1px solid;
+}
+#cashDesk{
+	width: 250px;
+	height: 100px;
+	border: 1px #000 solid;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	line-height: 100px;
+}
+#waiter{
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: 0.5s left,0.5s top;
+}
+
+#diningArea{
+	position: absolute;
+	bottom: 100px;
+	left: calc((100% - 150px)/2);
+}
+#seat{
+	width: 250px;
+	height: 250px;
+	border: 1px solid;
+}
+#status{
+	width: 250px;
+	position: absolute;
+	bottom: 230px;
+	left: 260px; 
+}
+#cust{
+	width: 150px;
+	height: 175px;
+	position: absolute;
+	left: 584px;
+	bottom: 173px;
+	transition: 0.5s left,0.5s bottom;
+	/*background: #acf;*/
+}
+#cust span{
+	display: block;
+	text-align: center;
+}
+
+#waitList{
+	width: 150px;
+	position: absolute;
+	right: -160px;
+	top: 250px;
+}
+#waitList div{
+	height: 175px;
+}
+#waitList img{
+	display: block;
+}
+#waitList span{
+	display: block;
+	text-align: center;
+}
