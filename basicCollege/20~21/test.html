@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <ul id="test">
+        <li>
+            <p>11111111111</p>
+        </li>
+        <li>
+            <div>
+            </div>
+        </li>
+        <li>
+            <span>3333333333</span>
+        </li>
+        <li>4444444</li>
+    </ul>
+    <script type="text/javascript">
+        var oUl = document.getElementById('test');
+    oUl.addEventListener('click',function(ev){
+        var target = ev.target;
+        while(target !== oUl ){
+            if(target.tagName.toLowerCase() == 'li'){
+                console.log('li click~');
+                break;
+            }
+            target = target.parentNode;
+        }
+    })
+    </script>
+</body>
+</html>

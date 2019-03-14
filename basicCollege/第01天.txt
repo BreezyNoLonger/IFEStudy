@@ -1,0 +1,5 @@
+11/1 time:?
+目标：了解web  no
+了解了HTML、HTML5、XHTML、CSS、SQL、JavaScript、PHP的区别
+不是很清楚ASP.NET、Web Services的定义
+目标：梳理完整所学的知识。

@@ -1,0 +1,26 @@
+str.length
+	返回str的长度
+
+str.indexOf(str1)
+	返回str1在str中出现的第一个位置，没有时返回-1
+
+str.slice(startNum[, endNum])
+	返回str中从startNum开始[到endNum之前/之后]所有的字符
+	startNum,endNum均可为负
+
+str.substr(startNum[, length])
+	返回str中从startNum开始[的length长度/之后所有]的字符
+	startNum可为负
+
+str.substring(startNum[, endNum])
+	返回str中从startNum开始[到endNum之前/之后]所有的字符
+	startNum,endNum均不可为负
+
+str.toLowerCase()
+	使str中的所有字符转换为小写
+
+str.toUpperCase()
+	使str中的所有字符转换为大写
+
+str = str.replace(str1, str2)
+	使str中的str1更新为str2
