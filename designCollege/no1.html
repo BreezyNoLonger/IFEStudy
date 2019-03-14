@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 4em;
+			margin: 0 auto;
+			position: relative;
+			-webkit-transition: 0.3s all;
+			-moz-transition: 0.3s all;
+			-o-transition: 0.3s all;
+			transition: 0.3s all;
+		}
+		p{
+			position: absolute;
+			width: 0;
+			height: 4px;
+			background-color: #617aca;
+			-webkit-transform: translateX(2em);
+			-moz-transform: translateX(2em);
+			-ms-transform: translateX(2em);
+			-o-transform: translateX(2em);
+			transform: translateX(2em);/**/
+			-webkit-transition: 0.3s all;
+			-moz-transition: 0.3s all;
+			-o-transition: 0.3s all;
+			transition: 0.3s all;/*IE10-不支持*/
+		}
+		div:hover{
+			color: #617aca;
+		}
+		div:hover p{
+			width: 4em;
+			-webkit-transform: translateX(0);
+			-moz-transform: translateX(0);
+			-ms-transform: translateX(0);
+			-o-transform: translateX(0);
+			transform: translateX(0);
+			-webkit-transition: 0.3s all;
+			-moz-transition: 0.3s all;
+			-o-transition: 0.3s all;
+			transition: 0.3s all;
+		}
+		button{
+			width: 100px;
+			height: 30px;
+			border-radius: 3px;
+			margin: 50px auto;
+			display: block;
+			background: #fff;
+			border: 1px solid;
+			outline: 0px;
+		}
+		button:active{
+			background: #617aca;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		前端学院
+		<p></p>
+	</div>
+	<button>点我点我</button>
+	
+	<script type="text/javascript">
+		var btn = document.querySelector('button');
+
+		btn.onclick = function() {
+			var div = document.querySelector('div');
+			var p = document.querySelector('p');
+			if (p.style.width !== '4em') {
+				div.style.color = '#617aca';
+				p.style.width = '4em'
+				p.style.webkitTransform = 'translateX(0)';
+				p.style.mozTransform = 'translateX(0)';
+				p.style.msTransform = 'translateX(0)';
+				p.style.oTransform = 'translateX(0)';
+				p.style.transform = 'translateX(0)';
+				
+			} else {
+				div.setAttribute('style', '');
+				p.setAttribute('style', '');
+				div.style = '';
+				p.style = '';
+			}
+		}
+	</script>
+</body>
+</html>
