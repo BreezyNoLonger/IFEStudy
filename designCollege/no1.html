@@ -25,11 +25,9 @@
 			-webkit-transform: translateX(2em);
 			-moz-transform: translateX(2em);
 			-ms-transform: translateX(2em);
-			-o-transform: translateX(2em);
-			transform: translateX(2em);/**/
+			transform: translateX(2em);/*IE9-不支持*/
 			-webkit-transition: 0.3s all;
 			-moz-transition: 0.3s all;
-			-o-transition: 0.3s all;
 			transition: 0.3s all;/*IE10-不支持*/
 		}
 		div:hover{
@@ -40,11 +38,9 @@
 			-webkit-transform: translateX(0);
 			-moz-transform: translateX(0);
 			-ms-transform: translateX(0);
-			-o-transform: translateX(0);
 			transform: translateX(0);
 			-webkit-transition: 0.3s all;
 			-moz-transition: 0.3s all;
-			-o-transition: 0.3s all;
 			transition: 0.3s all;
 		}
 		button{
@@ -81,14 +77,11 @@
 				p.style.webkitTransform = 'translateX(0)';
 				p.style.mozTransform = 'translateX(0)';
 				p.style.msTransform = 'translateX(0)';
-				p.style.oTransform = 'translateX(0)';
 				p.style.transform = 'translateX(0)';
 				
 			} else {
 				div.setAttribute('style', '');
 				p.setAttribute('style', '');
-				div.style = '';
-				p.style = '';
 			}
 		}
 	</script>

@@ -18,28 +18,41 @@
 		}
 		#box1{
 			/*向左旋转30度*/
-			/*transform: skewX(30deg);*/
-			transform: matrix(1, 0, 0.577, 1, 0, 0);
-			/*transform: matrix(1.288675, -0.288675, 0, 1, 0, 0);*/
-
+			-webkit-transform: skewX(30deg);
+			-moz-transform: skewX(30deg);
+			-ms-transform: skewX(30deg);
+			transform: skewX(30deg);
+			/*transform: matrix(1, 0, 0.577, 1, 0, 0);*/
 		}
 		#box2{
 			/*宽度变为原来的1/2*/
 			/*transform: scaleX(0.5);*/
+			-webkit-transform: matrix(0.5, 0, 0, 1, 0, 0);
+			-moz-transform: matrix(0.5, 0, 0, 1, 0, 0);
+			-ms-transform: matrix(0.5, 0, 0, 1, 0, 0);
 			transform: matrix(0.5, 0, 0, 1, 0, 0);
 		}
 		#box3{
 			/*顺时针旋转45度*/
-			/*transform: rotate(45deg);*/
-			transform: matrix(0.707, 0.707, -0.707, 0.707);
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			/*transform: matrix(0.707, 0.707, -0.707, 0.707);*/
 		}
 		#box4{
 			/*x轴正方向移动10px，y轴正方向移动20px*/
 			/*transform: translate(10px, 20px);*/
+			-webkit-transform: matrix(1, 0, 0, 1, 10, 20);
+			-moz-transform: matrix(1, 0, 0, 1, 10, 20);
+			-ms-transform: matrix(1, 0, 0, 1, 10, 20);
 			transform: matrix(1, 0, 0, 1, 10, 20);
 		}
 		#box5{
 			/*transform: rotate(45deg) skewX(30deg) scaleX(0.5) translate(10px, 20px);*/
+			-webkit-transform: matrix(1.13, 1.5, -0.13, 1.13, 10, 55);
+			-moz-transform: matrix(1.13, 1.5, -0.13, 1.13, 10, 55);
+			-ms-transform: matrix(1.13, 1.5, -0.13, 1.13, 10, 55);
 			transform: matrix(1.13, 1.5, -0.13, 1.13, 10, 55);
 		}
 	</style>
