@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		div{
+			margin: 0 auto;
+			width: 250px;
+			height: 350px;
+			position: relative;
+			perspective: 600px;	
+		}
+		div:hover #positive{
+			-webkit-transform: rotateY(180deg);
+			-moz-transform: rotateY(180deg);
+			-ms-transform: rotateY(180deg);
+			transform: rotateY(180deg);
+		}
+		div:hover #negative{
+			transform: rotateY(0deg);
+		}
+		
+		img{
+			backface-visibility:hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+			-webkit-transition: 0.3s all;
+			-moz-transition: 0.3s all;
+			transition: 0.3s all;
+		}
+		#negative{
+			-webkit-transform: rotateY(-180deg);
+			-moz-transform: rotateY(-180deg);
+			-ms-transform: rotateY(-180deg);
+			transform: rotateY(-180deg);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="images/positive.jpg" id="positive">
+		<img src="images/negative.jpg" id="negative">
+	</div>
+	
+</body>
+</html>
