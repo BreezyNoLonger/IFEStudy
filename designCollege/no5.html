@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		@keyframes rtt{
+			to {transform: /*rotateX(360deg)*/ rotateY(360deg);}
+		}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+			top: 150px;
+			perspective: 1500px;
+		}
+		#cube{
+			margin: 0 auto;
+			width: 300px;
+			height: 300px;
+			position: relative;
+			transform-style: preserve-3d;
+		}
+		#cube:hover{
+			animation: rtt 5s linear infinite;
+		}
+		.side{
+			width: 300px;
+			height: 300px;
+			border: 2px #06f solid;
+			background-color: #29f;
+			opacity: 0.5;
+			position: absolute;
+		}
+		.side:nth-child(1){
+			transform: rotateX(-90deg) translateZ(-150px) rotate(180deg);
+		}
+		.side:nth-child(2){
+			transform: rotateX(-90deg) translateZ(150px) rotate(180deg);
+		}
+		.side:nth-child(3){
+			transform: translateZ(150px);
+		}
+		.side:nth-child(4){
+			transform: translateZ(-150px);
+		}
+		.side:nth-child(5){
+			transform: rotateY(-90deg) translateZ(150px) rotate(180deg);
+		}
+		.side:nth-child(6){
+			transform: rotateY(-90deg) translateZ(-150px) rotate(180deg);
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<div id="cube">
+		<div class="side"></div>
+		<div class="side"></div>
+		<div class="side"></div>
+		<div class="side"></div>
+		<div class="side"></div>
+		<div class="side"></div>
+	</div>
+</div>
+	
+</body>
+</html>
