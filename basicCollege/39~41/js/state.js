@@ -40,7 +40,7 @@ function checked(region, product) {
 			}
 		}
 	}
-	if (count === 3) {
+	if (count === regionBoxs.length - 1) {
 		regionBoxs[0].checked = true;
 	} else {
 		regionBoxs[0].checked = false;
@@ -59,7 +59,7 @@ function checked(region, product) {
 			}
 		}
 	}
-	if (count === 3) {
+	if (count === productBoxs.length - 1) {
 		productBoxs[0].checked = true;
 	} else {
 		productBoxs[0].checked = false;
