@@ -8,43 +8,38 @@ function line(msg) {
 
 	this.ratio = window.devicePixelRatio || 1;
 
-	this.canvas.style.width = `${0.5 * window.innerWidth}px`;
-	this.canvas.style.height = `${0.25 * window.innerWidth}px`;
+	this.canvas.style.width = `${1 * window.innerWidth}px`;
+	this.canvas.style.height = `${0.5 * window.innerWidth}px`;
 
-	console.log(this.ratio);
+	this.canvas.width = 1 * window.innerWidth * this.ratio;
+	this.canvas.height = 0.5 * window.innerWidth * this.ratio;
 	
-
-	// const nowRectLength = rectLength * ratio;
-	// canvas.width = nowRectLength;
-	// canvas.height = nowRectLength;
-	this.canvas.width = 0.5 * window.innerWidth* this.ratio;
-	this.canvas.height = 0.5 * this.canvas.width* this.ratio;
-	this.axleX = this.canvas.width - (150 * this.ratio) ;
-	this.axleY = this.canvas.height - (150 * this.ratio);
-	this.lineColor = ['#acf', '#18c', '#239', '#90EE90', '#C0FF3E', '#aaa', '#EE9A00', '#00BFFF', '#6eba3c'];
+	this.axleX = this.canvas.width - 100 * this.ratio;
+	this.axleY = this.canvas.height - 50 * this.ratio;
+	this.lineColor = ['#18c', '#acf', '#239', '#90EE90', '#C0FF3E', '#aaa', '#EE9A00', '#00BFFF', '#6eba3c'];
 }
 
 line.prototype.createAxle = function () {
-// xy轴绘制
+	// xy轴绘制
 	this.ctx.beginPath();
 	this.ctx.lineWidth = this.ratio;
-	this.ctx.moveTo(50 * this.ratio, 50 * this.ratio);
-	this.ctx.lineTo(50 * this.ratio, 50 * this.ratio + this.axleY);
-	this.ctx.lineTo(50 * this.ratio + this.axleX, 50 * this.ratio + this.axleY);
+	this.ctx.moveTo(50 * this.ratio, 25 * this.ratio);
+	this.ctx.lineTo(50 * this.ratio, 25 * this.ratio + this.axleY);
+	this.ctx.lineTo(50 * this.ratio + this.axleX, 25 * this.ratio + this.axleY);
 	this.ctx.stroke();
-// x轴箭头绘制
+	// x轴箭头绘制
 	this.ctx.beginPath();
 	this.ctx.lineWidth = this.ratio;
-	this.ctx.moveTo(45 * this.ratio, 65 * this.ratio);
-	this.ctx.lineTo(50 * this.ratio, 50 * this.ratio);
-	this.ctx.lineTo(55 * this.ratio, 65 * this.ratio);
+	this.ctx.moveTo(45 * this.ratio, 33 * this.ratio);
+	this.ctx.lineTo(50 * this.ratio, 25 * this.ratio);
+	this.ctx.lineTo(55 * this.ratio, 33 * this.ratio);
 	this.ctx.stroke();
-// y轴箭头绘制
+	// y轴箭头绘制
 	this.ctx.beginPath();
 	this.ctx.lineWidth = this.ratio;
-	this.ctx.moveTo(42 * this.ratio + this.axleX, 40 * this.ratio + this.axleY);
-	this.ctx.lineTo(50 * this.ratio + this.axleX, 50 * this.ratio + this.axleY);
-	this.ctx.lineTo(42 * this.ratio + this.axleX, 60 * this.ratio + this.axleY);
+	this.ctx.moveTo(42 * this.ratio + this.axleX, 20 * this.ratio + this.axleY);
+	this.ctx.lineTo(50 * this.ratio + this.axleX, 25 * this.ratio + this.axleY);
+	this.ctx.lineTo(42 * this.ratio + this.axleX, 30 * this.ratio + this.axleY);
 	this.ctx.stroke();
 
 }
@@ -87,20 +82,21 @@ line.prototype.createLine = function () {
 
 line.prototype.updataData = function (msgSale, scaleHeight, lineColor) {
 	const pi = Math.PI;
-	var spacing = this.axleX / 12 * 95 / 100;
+	var spacing = this.axleX / 12;
 	for (let i = 0; i < msgSale.length; i++) {
 		this.ctx.beginPath();
 		
 		this.ctx.fillStyle = lineColor;
-		this.ctx.arc(spacing * (i + 0.7) + 50, this.axleY - scaleHeight[i] + 50, 2.5, 0, 2 * pi);
+		this.ctx.arc(spacing * (i + 0.5) + 50 * this.ratio, this.axleY - scaleHeight[i] + 25 * this.ratio, 2.5 * this.ratio, 0, 2 * pi);
 		this.ctx.fill();
 		if (i === msgSale.length - 1) {
 			continue;
 		}
 		this.ctx.beginPath();
+		this.ctx.lineWidth = this.ratio;
 		this.ctx.strokeStyle = lineColor;
-		this.ctx.moveTo(spacing * (i + 0.7) + 50, this.axleY - scaleHeight[i] + 50);
-		this.ctx.lineTo(spacing * (i + 1 + 0.7) + 50, this.axleY - scaleHeight[i + 1] + 50)
+		this.ctx.moveTo(spacing * (i + 0.5) + 50 * this.ratio, this.axleY - scaleHeight[i] + 25 * this.ratio);
+		this.ctx.lineTo(spacing * (i + 1 + 0.5) + 50 * this.ratio, this.axleY - scaleHeight[i + 1] + 25 * this.ratio)
 		this.ctx.stroke();
 	}
 }
