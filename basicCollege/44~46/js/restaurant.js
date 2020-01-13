@@ -10,9 +10,7 @@ class Restaurant{
 	// 招聘员工
 	hire(staff) {
 		this.staffList.push(staff);
-		console.log(`成功招聘${staff.name}`);
-		
-		// console.log('招聘完成');
+		console.log('招聘完成');
 	}
 	// 解雇员工
 	fire(staff) {
