@@ -1,9 +1,10 @@
 class Staff{
 	_order = [];
+	instance;
 	constructor(staffId, staffName, staffWage) {
-		this.staffId = staffId;
-		this.staffName = staffName;
-		this.staffWage = staffWage;
+		this.id = staffId;
+		this.name = staffName;
+		this.wage = staffWage;
 	}
 }
 
@@ -11,7 +12,7 @@ class Waiter extends Staff {
 	constructor(waiterId, waiterName, waiterWage) {
 		// 调用父类的constructor
 		super(waiterId, waiterName, waiterWage);
-		this.instance;
+
 	}
 
 	finishWork(work, customer) {
@@ -45,7 +46,6 @@ class Waiter extends Staff {
 class Cook extends Staff{
 	constructor(cookId, cookName, cookWage) {
 		super(cookId, cookName, cookWage);
-		this.instance;
 	}
 
 	finishWork(dishes, customer, waiter) {
