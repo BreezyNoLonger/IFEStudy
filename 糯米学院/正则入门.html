@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  请打开控制台
+  <script>
+    const phone_rex = /^(13[0-9]|14[5-9]|15[0-3,5-9]|16[2,5,6,7]|17[0-8]|18[0-9]|19[0-3,5-9])\d{8}$/
+    const phone_number_list = [18812011232,12345678909,18812312];
+    console.log('手机号正则检测');
+    
+    for (let i = 0; i < phone_number_list.length; i++) {
+      const element = phone_number_list[i];
+      console.log(`${element}: ${phone_rex.test(element)}`);  
+    }
+    
+    console.log('字符串是否有相邻重复单词');
+    
+    const word_rex = /\b(?<words>[a-z]+)\b\s+\b\k<words>\b/
+    const word_list = ['foo foo foo bar', 'foo bar foo', 'foo  barbar bar', '1 1'];
+
+    for (let i = 0; i < word_list.length; i++) {
+      const element = word_list[i];
+      console.log(`${element}: ${word_rex.test(element)}`);  
+    }
+  </script>
+</body>
+</html>
