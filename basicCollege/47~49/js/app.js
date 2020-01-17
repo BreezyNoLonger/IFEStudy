@@ -108,16 +108,16 @@ function begin() {
 							(Number(temp.innerHTML) - 1)/3 : 1;
 							custStatus(dish, len + tempTime);
 							customer.eat(dish, len + tempTime);
-							
+						
 						// }, dishNum * 2000);
 				})}, 1000 * time + 500);
 			}
 			setTimeout(cookerStatus, 500, bill);
 			return new Promise(function(resolve){
 				setTimeout(function(){
-					return resolve(total);
+					resolve(total);
 				// 炒菜时间 + 最后一个菜的吃饭时间 + 程序运行造成的延时缓冲
-				}, 1000 * time + 3000 * bill.length + 1000 + 1000 * bill.length);
+				}, 1000 * (time + 3 + 2));
 			});
 			// setTimeout(function(){
 

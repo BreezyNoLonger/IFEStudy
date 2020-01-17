@@ -11,6 +11,7 @@ class Customer{
 			for (let i = 0; i < Math.floor((Math.random() * menu.length)) + 1; i++) {
 				let random = Math.floor((Math.random() * menu.length));
 				bill.push(menu[random]);
+				bill[i][3] = false;
 				menu.splice(random, 1);
 			};
 			setTimeout(function(){
