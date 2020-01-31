@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @keyframes text-color {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: black;
+    }
+
+    .box {
+      margin: 50px auto;
+      padding: 10px;
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      position: relative;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      transition: filter 0.5s;
+    }
+
+    .show {
+      padding: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* border: 0px white solid; */
+      transform: translate(-50%, -50%);
+      transition: all 0.5s;
+      z-index: -1;
+      text-align: center;
+      /* opacity: ; */
+    }
+
+    .top,
+    .right,
+    .bottom,
+    .left {
+      transition: top 0.5s, right 0.5s, bottom 0.5s, left 0.5s;
+      position: absolute;
+      background-color: white;
+
+    }
+
+    .top,
+    .bottom {
+      height: 3px;
+      right: 50%;
+      left: 50%;
+    }
+
+    .right,
+    .left {
+      width: 3px;
+      top: 50%;
+      bottom: 50%;
+    }
+
+    .top {
+      top: -3px;
+    }
+
+    .right {
+      right: -3px;
+    }
+
+    .bottom {
+      bottom: -3px;
+    }
+
+    .left {
+      left: -3px;
+    }
+
+    .str {
+      display: inline-block;
+      text-align: center;
+      transform: translateY(50%);
+      transition: all 0.5s;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(to right, #94fe4e 0%, #1674e7 25%, #94fe4e 50%, #1674e7 75%, #94fe4e 100%);
+      background-size: 200% 100%;
+      animation: 1s infinite linear text-color;
+    }
+
+    .box:hover img {
+      filter: blur(5px);
+    }
+
+    .box:hover .show {
+      /* border: 1px white solid; */
+      z-index: 1;
+    }
+
+    .box:hover .top,
+    .box:hover .bottom {
+      right: -3px;
+      left: -3px;
+    }
+
+    .box:hover .right,
+    .box:hover .left {
+      top: -3px;
+      bottom: -3px;
+    }
+
+    .box:hover .str {
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="rabbit.jpg" alt="">
+    <div class="show">
+      <span class="top"></span>
+      <span class="right"></span>
+      <span class="bottom"></span>
+      <span class="left"></span>
+      <span class="str">
+        这只是一个字符串
+      </span>
+    </div>
+  </div>
+
+</body>
+
+</html>
