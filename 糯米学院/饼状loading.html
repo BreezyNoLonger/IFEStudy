@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>饼状loading</title>
+	<style type="text/css">
+		
+		/* 圆环动画 */
+		@keyframes ring {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		/* 圆动画 */
+		@keyframes circle {
+			0% {
+				opacity: 1;
+			}
+			50%, 100% {
+				opacity: 0;
+			}
+		}
+		/* 左半圆动画 */
+		@keyframes semicircle-left {
+			0% {
+				opacity: 1;
+			}
+			50%, 100% {
+				opacity: 0;
+			}
+		}
+		/* 右半圆动画 */
+		@keyframes semicircle-right {
+			0% {
+				opacity: 0;
+			}
+
+			50%, 100% {
+				opacity: 1;
+			}
+		}
+		/* 运动半圆动画 */
+		@keyframes semicircle {
+			0% {
+				transform: rotate(45deg);
+			}
+			50% {
+				/*color: hsl(257, 100%, 77%);*/
+			}
+			100% {
+				transform: rotate(405deg);
+			}
+		}
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box {
+			margin: auto;
+			width: 100px;
+			height: 100px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+		.ring{
+			width: 100%;
+			height: 100%;
+			border: 5px hsl(257, 100%, 77%) solid;
+			border-radius: 50%;
+			border-top-color: transparent;
+			animation: ring 2s infinite linear;
+			position: absolute;
+		}
+
+		.circle-dark-box, .circle-light-box{
+			width: 60%;
+			height: 60%;
+			position: absolute;
+			top: 20%;
+			left: 20%;
+			border-radius: 50%;
+			overflow: hidden;
+		}
+		.circle-dark-box {
+			background: hsl(257, 100%, 77%);
+			animation: circle 4s infinite steps(1, end);
+		}
+		.circle-light-box {
+			background: hsl(257, 100%, 87%);
+			animation: circle 4s infinite steps(1, end) reverse;
+		}
+
+		.semicircle, .semicircle-left, .semicircle-right {
+			width: 100%;
+			height: 100%;
+			border: 30px solid;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: rotate(45deg);
+		}
+		.semicircle-left {
+			border-top-color: transparent;
+			border-right-color: transparent;
+		}
+		.semicircle-left {
+			animation: semicircle-left 2s infinite steps(1, end);
+		}
+		.semicircle {
+			border-top-color: transparent;
+			border-right-color: transparent;
+			animation: semicircle 2s infinite linear;
+		}
+		.semicircle-right {
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+			animation: semicircle-right 2s infinite steps(1, end);
+		}
+
+		.circle-dark-box .semicircle-left{
+			color: hsl(257, 100%, 77%);
+		}
+		.circle-dark-box .semicircle-right, .circle-dark-box .semicircle{
+			color: hsl(257, 100%, 87%);
+		}
+
+		.circle-light-box .semicircle-left {
+			color: hsl(257, 100%, 87%);
+		}
+		.circle-light-box .semicircle-right, .circle-light-box .semicircle{
+			color: hsl(257, 100%, 77%);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="ring"></div>
+		<!-- 背景为深色的圆 -->
+		<div class="circle-dark-box">
+			<div class="semicircle"></div>
+			<div class="semicircle-left"></div>
+			<div class="semicircle-right"></div>
+		</div>
+		<!-- 背景为浅色的圆 -->
+		<div class="circle-light-box">
+			<div class="semicircle"></div>
+			<div class="semicircle-left"></div>
+			<div class="semicircle-right"></div>
+		</div>
+	</div>
+
+</body>
+</html>
