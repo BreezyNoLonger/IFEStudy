@@ -7,6 +7,22 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>在线Markdown解析器</title>
   <style>
+    blockquote {
+      margin: 0;
+      padding: 10px 20px;
+      border-left: #ccc 5px solid;
+    }
+
+    pre {
+      padding: 15px;
+      background-color: #222;
+      color: #ddd;
+    }
+
+    pre code {
+      font-family: sans-serif;
+    }
+
     [contenteditable],
     .show {
       margin: 0;
@@ -27,6 +43,7 @@
       border-left: transparent;
       border-bottom: transparent;
       outline: none;
+      white-space: pre-line;
     }
 
     .show {
@@ -37,36 +54,109 @@
 </head>
 
 <body>
-  <div contenteditable>
-    # 这是一篇Markdown测试文章<br>
-    ##标题测试：标题前无空格<br>
-    ## 标题测试：标题前有一个空格<br>
-    ##&nbsp;&nbsp;标题测试：标题前有多个空格<br>
+  <div contenteditable># 这是一篇Markdown测试文章
+    ##标题测试：标题前无空格
+    ## 标题测试：标题前有一个空格
+    ##&nbsp;&nbsp;标题测试：标题前有多个空格
+    ### 三级标题测试
+    #### 四级标题测试
+    ##### 五级标题测试
+    ###### 六级标题测试
     ## 列表测试
-    ### 无序列表测试<br>
-    * 这是一个无序列表<br>
-    * 这是一个无序列表<br>
-    ### 有序列表测试<br>
-    1. 这是第一个有序列表<br>
-    2. 这是第二个有序列表<br>
-    ### 有序无序列表混合测试<br>
-    * 这是一个无序列表<br>
-    1. 这是第一个有序列表<br>
-    2. 这是第二个有序列表<br>
-    * 这是一个无序列表<br>
-    1. 这是第一个有序列表<br>
-    * 这是一个无序列表<br>
-    2. 这是第二（一）个有序列表<br>
-    * 这是一个无序列表<br>
-    ## 普通段落测试<br>
-    这就是一个普通的段落<br>
-    这也是一个普通的段落<br>
+    ### 无序列表测试
+    * 这是一个无序列表
+    * 这是一个无序列表
+    ### 有序列表测试
+    1. 这是第一个有序列表
+    2. 这是第二个有序列表
+    ### 有序无序列表混合测试
+    * 这是一个无序列表
+    1. 这是第一个有序列表
+    2. 这是第二个有序列表
+    * 这是一个无序列表
+    1. 这是第一个有序列表
+    * 这是一个无序列表
+    2. 这是第二（一）个有序列表
+    * 这是一个无序列表
+    ## 普通段落测试
+    这就是一个普通的段落
+
+    这也是一个普通的段落
+    ## 引用测试
+    > 这是一段引用
+    > * a
+    ## 代码测试
+    ```这是一段测试用例```
+    ```这也是
+    一段测试用例```
+    ```这还是
+    一段
+
+    测试用例```
+    ## 链接测试
+    普通的段落中混着[链接](链接地址)
   </div>
   <div class="show"></div>
 
   <script>
     const write = document.querySelector('[contenteditable]');
     const show = document.querySelector('.show');
+
+    const rex_addAllTags = ({
+      value = ''
+    } = {}) => {
+      let result = value;
+      const rex = {
+        h1: /(?:^\#{1}\s|^\#{1}(?!#))(.*)/gm,
+        h2: /(?:^\#{2}\s|^\#{2}(?!#))(.*)/gm,
+        h3: /(?:^\#{3}\s|^\#{3}(?!#))(.*)/gm,
+        h4: /(?:^\#{4}\s|^\#{4}(?!#))(.*)/gm,
+        h5: /(?:^\#{5}\s|^\#{5}(?!#))(.*)/gm,
+        h6: /(?:^\#{6}\s|^\#{6}(?!#))(.*)/gm,
+        ul: /(?:(?:\*|-)\s)+?(.*)/gm,
+        ol: /(?:\d+\.\s)(.*)/gm,
+        blockquote: /(?:^>\s)(.*)/gm,
+        // pre: /`{3}([\u4e00-\u9fa5a-zA-Z0-9\s]*)`{3}/m
+        pre: /^`{3}([^`]*)`{3}$/gm,
+        // 在结束标签后换行未接上开始标签
+        p: /(?<=<\/\w+>(?:\n|\r))([^<]*?$)/gm,
+        a: /(?:\[)(.*?)(?:\])(?:\()(.*?)(?:\))/gm
+      }
+
+      for (const key in rex) {
+        if (rex.hasOwnProperty(key)) {
+          const element = rex[key];
+          if (key === 'ul' || key === 'ol') {
+            result = result.replace(element, `<${key}><li>$1</li></${key}>`)
+              // .replace(/<\/ul>(\n|\r)<ul>|<\/ol>(\n|\r)<ol>/gm, '');
+          } else if (key === 'pre') {
+            result = result.replace(element, `<${key}><code>$1</code></${key}>`);
+          } else if (key === 'p') {
+            while (element.test(result)) {
+              result = result.replace(element, `<${key}>$1</${key}>`);
+              console.log(result);
+            }
+          } else if (key === 'a') {
+            result = result.replace(element, `<${key} href="$2">$1</${key}>`);
+          }
+          else {
+            result = result.replace(element, `<${key}>$1</${key}>`);
+          }
+          // result = result.replace(element, `开头$1结尾`)
+        }
+      }
+      // console.log(result);
+
+      return {
+        value: result,
+
+      };
+    };
+
+    const showPage = (value) => {
+      const result = rex_addAllTags({ value }).value;
+      show.innerHTML = result;
+    }
 
     const rex_addTag = ({
       value = ''
@@ -80,7 +170,13 @@
         h5: /^\#{5}\s|^\#{5}(?!#)/gm,
         h6: /^\#{6}\s|^\#{6}(?!#)/gm,
         ul: /(^(\*|-)\s)+?/gm,
-        ol: /^\d+\.\s/gm
+        // ul: /(?:^(?:\*|-)\s)+?(.*)/gm,
+        ol: /^\d+\.\s/gm,
+        blockquote: /^>\s/gm,
+        // pre: /`{3}([\u4e00-\u9fa5a-zA-Z0-9\s]*)`{3}/m
+        pre: /^`{3}([^`]*)`{3}$/gm,
+        pre_start: /^`{3}([^`]*)$/gm,
+        pre_end: /^([^`]*)`{3}$/gm,
       }
       const rex_ = /^/gm;
       let tag = 'p';
@@ -97,19 +193,27 @@
         case 'ol':
           result = `<li>${value.replace(rex[tag], '')}</li>`;
           break;
+        case 'pre':
+        case 'pre_start':
+        case 'pre_end':
+          result = `${value.replace(rex[tag], '$1')}`;
+          break;
         default:
-          result = `<${tag}>${value.replace(rex[tag], '')}</${tag}>`;
+          // result = `<${tag}>${value.replace(rex[tag], '')}</${tag}>`;
+          result = '<' + tag + '>' + value.replace(rex[tag], '') + `</${tag}>`;
           break;
       }
+      // console.log(value);
+      // console.log(result);
+
       return {
         value: result,
         tag
       };
-    }
-    write.addEventListener('input', (event) => {
-      const target = event.target;
-      const msg = target.innerText;
-      const msg_array = msg.split(/$/gm);
+    };
+
+    const showResult = (value) => {
+      const msg_array = value.split(/^/gm);
 
       let result = '';
       let lastTag = '';
@@ -121,25 +225,40 @@
         });
         // 当上一次标签是ol/ul但是这次标签不是ol/ul时
         if ((lastTag === 'ol' && rex_result.tag !== 'ol') || (lastTag === 'ul' && rex_result.tag !== 'ul')) {
-          result += `</${lastTag}>`;
+          result += `</${lastTag}> `;
           // 当上一次为ol/ul这一次为ul/ol时
           if ((lastTag === 'ol' && rex_result.tag === 'ul') || (lastTag === 'ul' && rex_result.tag === 'ol')) {
-            result += `<${rex_result.tag}>`;
+            result += `<${rex_result.tag}> `;
           }
           result += rex_result.value;
         }
         // 当上一次标签不是ol/ul但是这一次标签时ol/ul时
         else if ((lastTag !== 'ol' && rex_result.tag === 'ol') || (lastTag !== 'ul' && rex_result.tag === 'ul')) {
           result += `<${rex_result.tag}>${rex_result.value}`;
+        } else if (rex_result.tag.includes('pre')) {
+          if (rex_result.tag === 'pre') {
+            result += `<pre><code>${rex_result.value}</code></pre>`
+          } else if (rex_result.tag === 'pre_start') {
+            result += `<pre><code>${rex_result.value}`
+          } else if (rex_result.tag === 'pre_end') {
+            result += `${rex_result.value}</code></pre>`
+          }
         }
         // 上次和这个标签都不是列表标签时 
         else {
-          result += rex_result.value;
+          result = result + rex_result.value;
         }
         lastTag = rex_result.tag;
       }
 
       show.innerHTML = result;
+    }
+    showPage(write.innerText);
+    write.addEventListener('input', (event) => {
+      const target = event.target;
+      const msg = target.innerText;
+      // showResult(msg);
+      showPage(msg);
     });
   </script>
 </body>
